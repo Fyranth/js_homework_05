@@ -89,11 +89,11 @@ function getRandomInt(min, max) {
 function word_generator(lengthMin=3, lengthMax=5) {
     let arr_ru = ['а','б','в','г','д','е','ё','ж','з','и','й','к','л', 'м', 'н', 'о', 'п', 'р', 'с', 'т', 'у', 'ф', 'х', 'ц', 'ч', 'ш', 'щ', 'ь', 'ы', 'ъ', 'э', 'ю', 'я'];
     let arr_letter2 = ['а', 'е', 'ё', 'и', 'о', 'у', 'ы', 'э', 'ю', 'я'];
-    let arr_letter1 = ['б','в','г','д','ж','з','й','к','л','м','н','п','р','с','т','ф','х','ц','ч','ш','щ','ь','ъ'];
-    let word_length = getRandomInt(3,5);
+    let arr_letter1 = ['б','в','г','д','ж','з','й','к','л','м','н','п','р','с','т','ф','х','ц','ч','ш','щ'];//,'ь','ъ']; - по идее это знаки - потому убираю
+    let word_length = getRandomInt(lengthMin,lengthMax+1); //чтобы получить lenghtMax максимум ставим больше на 1
     let itGlass = getRandomInt(0,1);
     let word = '';
-    while(word.length<=word_length) {
+    while(word.length<word_length) {
         //Уменьшил количество строчек кода)
         let targetArr = (itGlass) ? arr_letter2 : arr_letter1;
         let letter = targetArr[getRandomInt(0, targetArr.length-1)];
@@ -111,7 +111,6 @@ function word_generator(lengthMin=3, lengthMax=5) {
     return word;
 }
 
-console.log(word_generator());
 console.log(word_generator());
 console.log(word_generator());
 console.log(word_generator());
