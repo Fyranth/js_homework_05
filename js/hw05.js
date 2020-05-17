@@ -94,13 +94,17 @@ function word_generator(lengthMin=3, lengthMax=5) {
     let itGlass = getRandomInt(0,1);
     let word = '';
     while(word.length<=word_length) {
-        if(itGlass){
+        //Уменьшил количество строчек кода)
+        let targetArr = (itGlass) ? arr_letter2 : arr_letter1;
+        let letter = targetArr[getRandomInt(0, targetArr.length-1)];
+        word += arr_ru[arr_ru.indexOf(letter)];
+        /*if(itGlass){
             let letter = arr_letter2[getRandomInt(0, arr_letter2.length-1)];
             word += arr_ru[arr_ru.indexOf(letter)];
         } else {
             let letter = arr_letter1[getRandomInt(0, arr_letter1.length-1)];
             word += arr_ru[arr_ru.indexOf(letter)];
-        }
+        }*/
         word = (word.length==1) ? word.toUpperCase() : word;
         itGlass = !itGlass;
     }
